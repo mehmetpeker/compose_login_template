@@ -31,3 +31,9 @@ val Typography = Typography(
 val PlayfairFontFamily = FontFamily(
     Font(R.font.playfair_display)
 )
+val PoppinsFontFamily = FontFamily(
+    Font(R.font.poppins_medium)
+)
+val PoppinsRegularFontFamily = FontFamily(
+    Font(R.font.poppins_regular)
+)
