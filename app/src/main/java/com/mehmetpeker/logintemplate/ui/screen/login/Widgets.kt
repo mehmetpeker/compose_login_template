@@ -6,22 +6,23 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Home
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.setValue
+import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.graphics.SolidColor
+import androidx.compose.ui.text.AnnotatedString
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
-import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.mehmetpeker.logintemplate.ui.theme.*
 
 @Composable
@@ -136,4 +137,42 @@ fun SignInButton(
         Text(text,modifier = Modifier.fillMaxWidth(),textAlign = TextAlign.Center,fontFamily = PoppinsRegularFontFamily)
         Spacer(modifier = Modifier.size(24.dp))
     }
+}
+@Composable
+fun ORString() {
+    Box(contentAlignment = Alignment.Center) {
+        Box(
+            Modifier
+                .height(1.dp)
+                .fillMaxWidth()
+                .background(Color(0xffDEDEDE), shape = RectangleShape)
+                .clip(RectangleShape)
+        )
+        Text(
+            "OR",
+            modifier = Modifier
+                .background(Color.White, shape = RoundedCornerShape(50))
+                .padding(8.dp),
+            fontWeight = FontWeight.Bold,
+            fontSize = 17.sp,
+            letterSpacing = 1.5.sp,
+            fontFamily = PoppinsFontFamily
+        )
+    }
+}
+
+fun SignUpText(): AnnotatedString {
+    return buildAnnotatedString {
+        withStyle(style = SpanStyle(color = Color(0xff4C5673))) {
+            append("Don’t have an account?")
+        }
+        withStyle(style = SpanStyle(fontWeight = FontWeight.Bold, color = login_login_btn_color)) {
+            append("Sign up")
+        }
+    }
+}
+
+@Composable
+fun VerticalSpacer(value: Int) {
+    Spacer(Modifier.height(value.dp))
 }
